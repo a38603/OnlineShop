@@ -1,0 +1,24 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+*.dll
+*.exe
+
+# Others
+*.log
+*.cache
+*.pdb
+
+# Package management
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+
