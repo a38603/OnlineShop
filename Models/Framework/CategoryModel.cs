@@ -33,5 +33,46 @@ namespace Models.Framework
             int res = context.Database.ExecuteSqlCommand("EXEC Sp_Category_Insert @Name,@Alias,@ParentID,@Order,@Status", parameter);
             return res;
         }
+
+        public int Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        // Cập nhật thông tin danh mục
+        public int Update(int id, string name, string alias, int? parentID, int? order, bool? status)
+        {
+            object[] parameter =
+            {
+            new SqlParameter("@ID", id),
+            new SqlParameter("@Name", name),
+            new SqlParameter("@Alias", alias),
+            new SqlParameter("@ParentID", parentID),
+            new SqlParameter("@Order", order),
+            new SqlParameter("@Status", status)
+        };
+
+            // Gọi Stored Procedure Sp_Category_Update để cập nhật thông tin danh mục
+            int res = context.Database.ExecuteSqlCommand("EXEC Sp_Category_Update @ID, @Name, @Alias, @ParentID, @Order, @Status", parameter);
+            return res;
+        }
+        public Category GetById(int id)
+        {
+            var category = context.Categories.Find(id);
+            return category;
+        }
+        // Xóa một danh mục theo ID
+        public int DeleteCategory(int id)
+        {
+            object[] parameter =
+            {
+            new SqlParameter("@ID", id)
+        };
+
+            // Gọi Stored Procedure Sp_Category_Delete để xóa danh mục
+            int res = context.Database.ExecuteSqlCommand("EXEC Sp_Category_Delete @ID", parameter);
+            return res;
+        }
+
     }
 }
