@@ -1,0 +1,84 @@
+﻿@model List<Models.Framework.Product>
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Begin Page Content -->
+<div class="container-fluid" style="width: 100%; overflow-x: auto;">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+           <div class="table-responsive" style="overflow-x: auto; width: 100%;">
+               <table class="table table-bordered" id="dataTable" style="min-width: 1300px;" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ProductId</th>
+                            <th>ProductName</th>
+                            <th>Price</th>
+                            <th>ProductImg</th>
+                            <th>CategoryName</th>
+                            <th>BrandName</th>
+                            <th>Stock</th>
+                            <th>Rating</th>
+                            <th>CreatedAt</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.ProductId</td>
+                                <td>@item.ProductName</td>
+                                <td>@item.Price</td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(item.ProductImg))
+                                    {
+                                        <img src="~/Assets/Img_Products/@item.ProductImg" alt="@item.ProductName" style="width: 50px; height: auto;" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Assets/Img_Products/default_logo.png" alt="No Image" style="width: 50px; height: auto;" />
+                                    }
+                                </td>
+                                <td>@item.CategoryName</td>
+                                <td>@item.BrandName</td>
+                                <td>@item.Stock</td>
+                                <td>@item.Rating</td>
+                                <td>@item.CreatedAt</td>
+
+                                <td>
+                                    <div class="btn-group">
+                                        <!-- Nút Edit -->
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }, new { @class = "btn btn-primary btn-sm" })
+
+                                        <!-- Nút Delete (POST) -->
+                                        @using (Html.BeginForm("Delete", "Product", new { id = item.ProductId }, FormMethod.Post, new { onsubmit = "return confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?');" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        }
+                                    </div>
+
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <div>
+                    @Html.ActionLink("Create Product", "Create")
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

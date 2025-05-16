@@ -2,16 +2,11 @@
 <html lang="en">
 
 <head>
-
+    <title>OnlineShop_Admin</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content>
-    <meta name="author" content>
-
-    <title>OnlineShop_Admin</title>
-
     <!-- Custom fonts for this template-->
     <link href="~/Assets/Admin/vendor/fontawesome-free/css/all.min.css"
           rel="stylesheet" type="text/css">
@@ -39,7 +34,7 @@
                     </div>
                     <div class="sidebar-brand-text mx-3">
                         OnlineShop
-                        
+
                     </div>
                 </a>
             </li>
@@ -149,12 +144,23 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
+            <!-- Nav Item - Manage -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span>
+                <a class="nav-link collapsed" href="#"
+                   data-toggle="collapse" data-target="#collapseManage"
+                   aria-expanded="false" aria-controls="collapseManage">
+                    <i class="fas fa-fw fa-cogs"></i>
+                    <span>Manage</span>
                 </a>
+                <div id="collapseManage" class="collapse"
+                     aria-labelledby="headingManage"
+                     data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="@Url.Action("Index", "Category", new { area = "Admin" })">Manage Category</a>
+                        <a class="collapse-item" href="@Url.Action("Index", "Brand", new { area = "Admin" })">Manage Brand</a>
+                        <a class="collapse-item" href="@Url.Action("Index", "Product", new { area = "Admin" })">Manage Product</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Nav Item - Tables -->
@@ -480,7 +486,7 @@
 
 
                 <!-- End of Topbar -->
-                <div class="container body-content">
+                <div class="container-fluid body-content">
                     @RenderBody()
                     <hr />
                 </div>

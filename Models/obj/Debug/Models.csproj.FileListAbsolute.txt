@@ -10,3 +10,16 @@ D:\Manh\MVC\OnlineShop\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
 D:\Manh\MVC\OnlineShop\Models\obj\Debug\Models.csproj.Up2Date
 D:\Manh\MVC\OnlineShop\Models\obj\Debug\Models.dll
 D:\Manh\MVC\OnlineShop\Models\obj\Debug\Models.pdb
+D:\Manh\MVC\OnlineShop\Models\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Manh\MVC\OnlineShop\Models\bin\Debug\System.Web.Helpers.dll
+D:\Manh\MVC\OnlineShop\Models\bin\Debug\System.Web.Mvc.dll
+D:\Manh\MVC\OnlineShop\Models\bin\Debug\System.Web.Razor.dll
+D:\Manh\MVC\OnlineShop\Models\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Manh\MVC\OnlineShop\Models\bin\Debug\System.Web.WebPages.dll
+D:\Manh\MVC\OnlineShop\Models\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Manh\MVC\OnlineShop\Models\bin\Debug\System.Web.Helpers.xml
+D:\Manh\MVC\OnlineShop\Models\bin\Debug\System.Web.Mvc.xml
+D:\Manh\MVC\OnlineShop\Models\bin\Debug\System.Web.Razor.xml
+D:\Manh\MVC\OnlineShop\Models\bin\Debug\System.Web.WebPages.xml
+D:\Manh\MVC\OnlineShop\Models\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Manh\MVC\OnlineShop\Models\bin\Debug\System.Web.WebPages.Razor.xml

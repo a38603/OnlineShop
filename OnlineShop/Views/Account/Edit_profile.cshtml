@@ -1,0 +1,175 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<body>
+
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <section class="shop section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb-4">
+                    <div class="account-sidebar">
+                        <h6 class="sidebar-title">DASHBOARD</h6>
+                        <div class="sidebar-list">
+                            <a href="order-list.html" class="active"><i class="far fa-shopping-bag"></i> Orders
+                                <span>10</span></a>
+                            <a href="wishlist.html"><i class="far fa-heart"></i> Wishlist <span>20</span></a>
+                            <a href="support-ticket.html"><i class="far fa-headset"></i> Support Tickets
+                                <span>2</span></a>
+                        </div>
+                        <h6 class="sidebar-title mt-4">PROFILE SETTINGS</h6>
+                        <div class="sidebar-list">
+                            <a href="profile.html"><i class="far fa-user"></i> Profile Info</a>
+                            <a href="address-list.html"><i class="far fa-map-marker-alt"></i> Addresses
+                                <span>20</span></a>
+                            <a href="payment-method.html"><i class="far fa-credit-card"></i> Payment Methods
+                                <span>2</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="account-content bg-white pt-0">
+                        <h4 class="account-content-title"><i class="far fa-user"></i> Edit Profile</h4>
+                        <div class="edit-profile">
+                            <form action="#">
+                                <div class="profile-img">
+                                    <img src="~/Assets/content/assets/img/products/review.jpg" alt="">
+                                    <i class="fal fa-camera"></i>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="fname" class="form-label">First Name</label>
+                                            <input type="text" class="form-control" value="Nelson" id="fname">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="lname" class="form-label">Last Name</label>
+                                            <input type="text" class="form-control" value="Kelsey" id="lname">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" value="me@domain.com" id="email">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="phone" class="form-label">Phone</label>
+                                            <input type="text" class="form-control" value="+1 123 456 6547" id="phone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn">Save Changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="shop-newsletter py-5">
+        <div class="container">
+            <div class="inner-top">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 col-12">
+
+                        <div class="inner">
+                            <h4>Newsletter</h4>
+                            <p> Subscribe to our newsletter and get <span>30%</span> off your first purchase</p>
+                            <form action="#" method="get" class="newsletter-inner">
+                                <input name="email" placeholder="Your email address" required="" type="email">
+                                <button class="btn">Subscribe <i class="fal fa-paper-plane"></i></button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdrop" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                            <img src="~/Assets/content/assets/img/products/p1.png" alt="#">
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                            <div class="quickview-content">
+                                <h2>Xbeats Bluetooth Earphones</h2>
+                                <div class="d-flex mb-3">
+                                    <span>Brand:</span>
+                                    <b>Xbeats</b>
+                                </div>
+                                <div class="d-flex mb-3">
+                                    <span>Category:</span>
+                                    <b>Headphones</b>
+                                </div>
+                                <div class="d-flex mb-3">
+                                    <span>Tated:</span>
+                                    <div class="quickview-ratting-review">
+                                        <div class="quickview-ratting-wrap">
+                                            <div class="quickview-ratting">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fal fa-star"></i>
+                                                <a href="#"> (50)</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3>$29.00</h3>
+                                <div class="quickview-stock">
+                                    <span><i class="fa fa-check-circle-o"></i> Stock Available</span>
+                                </div>
+                                <div class="add-to-cart">
+                                    <a href="#" class="btn">Add to cart</a>
+                                </div>
+                                <div class="default-social">
+                                    <h4 class="share-now">Share:</h4>
+                                    <ul>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

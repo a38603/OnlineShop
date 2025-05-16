@@ -1,0 +1,82 @@
+﻿@model List<Models.Framework.Brand>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Tables Brands</h1>
+    <!-- THÔNG BÁO -->
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @TempData["Message"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables List Brands</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>BrandId</th>
+                            <th>BrandName</th>
+                            <th>Logo</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.BrandId</td>
+                                <td>@item.BrandName</td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(item.Logo))
+                                    {
+                                        <img src="~/Assets/Img_Brands/@item.Logo" alt="@item.BrandName" style="width: 50px; height: auto;" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Assets/Img_Brands/default_logo.png" alt="No Logo" style="width: 50px; height: auto;" />
+                                    }
+
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <!-- Nút Edit -->
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.BrandId }, new { @class = "btn btn-primary btn-sm" })
+
+                                        <!-- Nút Delete (POST) -->
+                                        @using (Html.BeginForm("Delete", "Brand", new { id = item.BrandId }, FormMethod.Post, new { onsubmit = "return confirm('Bạn có chắc chắn muốn xóa mục này không?');" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        }
+
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <div>
+                    @Html.ActionLink("Create Brand", "Create")
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

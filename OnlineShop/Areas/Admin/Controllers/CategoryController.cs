@@ -19,7 +19,6 @@ namespace OnlineShop.Areas.Admin.Controllers
         }
 
         // GET: Admin/Category/Create
-        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -36,7 +35,7 @@ namespace OnlineShop.Areas.Admin.Controllers
                 if (ModelState.IsValid)
                 {
                     var model = new CategoryModel();
-                    int res = model.Create(collection.Name,collection.Alias, collection.ParentID, collection.Order, collection.Status);
+                    int res = model.Create(collection.CategoryName);
                     if (res > 0)
                     {
                        
@@ -62,20 +61,20 @@ namespace OnlineShop.Areas.Admin.Controllers
             }
         }
 
-        // GET: Admin/Category/Edit/{id}
+        // GET: Admin/Category/Edit/{categoryId}
         [HttpGet]
         public ActionResult Edit(int id)
         {
             var model = new CategoryModel();
-            var category = model.GetById(id); // Lấy Category theo ID
+            var category = model.GetById(id); // dùng id làm CategoryId
             if (category == null)
             {
                 return HttpNotFound();
             }
-            return View("Edit",category);
+            return View("Edit", category);
         }
 
-        // POST: Admin/Category/Edit/{id}
+        // POST: Admin/Category/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Category collection)
@@ -85,7 +84,7 @@ namespace OnlineShop.Areas.Admin.Controllers
                 if (ModelState.IsValid)
                 {
                     var model = new CategoryModel();
-                    int res = model.Update(collection.ID, collection.Name, collection.Alias, collection.ParentID, collection.Order, collection.Status);
+                    int res = model.Update(collection.CategoryId, collection.CategoryName);
                     if (res > 0)
                     {
                         return RedirectToAction("Index");
@@ -95,7 +94,7 @@ namespace OnlineShop.Areas.Admin.Controllers
                         ModelState.AddModelError("", "Lỗi update");
                     }
                 }
-                return View("Edit",collection);
+                return View("Edit", collection);
             }
             catch (Exception ex)
             {
@@ -103,6 +102,7 @@ namespace OnlineShop.Areas.Admin.Controllers
                 return View("Edit", collection);
             }
         }
+
 
         // POST: Admin/Category/Delete/{id}
         [HttpPost]
