@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Models.ViewModels
+{
+    public class BrandViewModel
+    {
+        public int BrandId { get; set; }
+        public string BrandName { get; set; }
+        public List<ProductViewModel> Products { get; set; } = new List<ProductViewModel>();
+    }
+}

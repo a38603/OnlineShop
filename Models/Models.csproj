@@ -83,10 +83,14 @@
     <Compile Include="Framework\OnlineShopDbContext.cs" />
     <Compile Include="Framework\Product.cs" />
     <Compile Include="Framework\sysdiagram.cs" />
+    <Compile Include="ViewModels\BrandViewModel.cs" />
+    <Compile Include="ViewModels\CategoryMenuViewModel.cs" />
     <Compile Include="ViewModels\ProductCreateViewModel.cs" />
     <Compile Include="ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ProductDisplayModel.cs" />
     <Compile Include="ViewModels\ProductEditViewModel.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,0 +1,31 @@
+﻿@model List<Models.ViewModels.ProductViewModel>
+
+@{
+    ViewBag.Title = "Danh sách sản phẩm theo danh mục";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="preloader">
+    <div class="preloader-inner">
+        <div class="preloader-icon">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+
+<h1>Danh sách sản phẩm: </h1>
+
+<div class="product-list" style="display: flex; flex-wrap: wrap; gap: 20px;">
+    @foreach (var product in Model)
+    {
+        <div class="product-item" style="width: 220px; border: 1px solid #ddd; padding: 10px; border-radius: 8px;">
+            <img src="@Url.Content("~/Assets/Img_Products/" + product.ProductImg)" alt="@product.ProductName" style="width: 100%; height: auto;" />
+            <h3 style="margin-top: 10px;">@product.ProductName</h3>
+            <p>Price: @product.Price.ToString("C")</p>
+            <p>Brand: @product.BrandName</p>
+            <p>Rating: @product.Rating</p>
+            <p>Stock: @product.Stock</p>
+            <p>Created at: @product.CreatedAt.ToString("dd/MM/yyyy")</p>
+        </div>
+    }
+</div>

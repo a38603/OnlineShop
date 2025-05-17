@@ -1,0 +1,10 @@
+﻿@model List<Models.ViewModels.CategoryMenuViewModel>
+
+@foreach (var category in Model)
+{
+    <li>
+        <a href="@Url.Action("ProductsByCategory", "Product", new { categoryId = category.CategoryId })">
+            @category.CategoryName
+        </a>
+    </li>
+}

@@ -85,6 +85,16 @@ namespace Models
             int res = context.Database.ExecuteSqlCommand("EXEC Sp_Product_Delete @ProductId", parameter);
             return res;
         }
+        public List<ProductDisplayModel> GetAllProducts()
+        {
+            return context.Database.SqlQuery<ProductDisplayModel>("EXEC Sp_Product_listAll").ToList();
+        }
+        public List<ProductViewModel> GetProductsByCategory(int categoryId)
+        {
+            return context.Database.SqlQuery<ProductViewModel>(
+                "EXEC Sp_Product_GetByCategory @CategoryId",
+                new SqlParameter("@CategoryId", categoryId)).ToList();
+        }
     }
 }
 
