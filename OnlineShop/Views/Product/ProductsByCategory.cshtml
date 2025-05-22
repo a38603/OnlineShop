@@ -15,17 +15,53 @@
 
 <h1>Danh sách sản phẩm: </h1>
 
-<div class="product-list" style="display: flex; flex-wrap: wrap; gap: 20px;">
-    @foreach (var product in Model)
-    {
-        <div class="product-item" style="width: 220px; border: 1px solid #ddd; padding: 10px; border-radius: 8px;">
-            <img src="@Url.Content("~/Assets/Img_Products/" + product.ProductImg)" alt="@product.ProductName" style="width: 100%; height: auto;" />
-            <h3 style="margin-top: 10px;">@product.ProductName</h3>
-            <p>Price: @product.Price.ToString("C")</p>
-            <p>Brand: @product.BrandName</p>
-            <p>Rating: @product.Rating</p>
-            <p>Stock: @product.Stock</p>
-            <p>Created at: @product.CreatedAt.ToString("dd/MM/yyyy")</p>
-        </div>
-    }
+@* Thêm link Font Awesome nếu chưa có *@
+
+
+<div class="container py-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        @foreach (var product in Model)
+        {
+            <div class="col">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="@Url.Content("~/Assets/Img_Products/" + product.ProductImg)"
+                         class="card-img-top p-3"
+                         alt="@product.ProductName"
+                         style="object-fit: contain; height: 180px;">
+
+                    <div class="card-body">
+                        <h6 class="card-title text-primary fw-bold">@product.ProductName</h6>
+                        <p class="mb-1"><strong>Price:</strong> @product.Price.ToString("C")</p>
+                        <p class="mb-1"><strong>Brand:</strong> @product.BrandName</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="badge bg-success">⭐ @product.Rating</span>
+
+                                <form asp-controller="Cart" asp-action="AddToCart" method="post" class="m-0">
+                                    <input type="hidden" name="productId" value="@product.ProductId" />
+                                    <button type="submit" class="btn btn-sm btn-cart p-1 d-flex align-items-center justify-content-center"
+                                            style="width: 30px; height: 30px;" title="Add to cart">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                </form>
+                            </div>
+                            <small class="text-muted">@product.Stock in stock</small>
+                        </div>
+                    </div>
+
+                    <div class="card-footer bg-white border-0">
+                        <div class="d-grid gap-2">
+                            <a href="/Product/Details/@product.ProductId" class="btn btn-detail">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>
+
+
+
+
+
+

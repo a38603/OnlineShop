@@ -1,4 +1,4 @@
-
+﻿
 /* Preloader */
 .preloader {
   position: fixed;
@@ -31,8 +31,8 @@
   height: 100px;
   border-radius: 100%;
   background:#32B87D;
-  -webkit-animation: preloader-fx 1s linear infinite;
-  animation: preloader-fx 1s linear infinite;
+  -webkit-animation: preloader-fx 1.6s linear infinite;
+  animation: preloader-fx 1.6s linear infinite;
 }
 .preloader-icon span:last-child {
   animation-delay: -0.8s;
@@ -691,8 +691,9 @@
 }
 
 .header.shop .main-category {
-	left: -10px;
-	top: 60px;
+	position: absolute;
+	left: 0;
+	top: 63px;
 	background: #fff;
 	z-index: 2;
 	width: 100%;
@@ -724,9 +725,12 @@
 	padding: 13px 25px 13px 25px;
 	display: block;
 	text-transform: uppercase;
-	margin-top:2px;
-	float:right;
+}
+.header.shop .main-category li a i{
 	display:inline-block;
+	float:right;
+	font-size: 22px;
+	margin-top:2px;
 }
 
 .header.shop .main-category .category-icon{
@@ -1572,10 +1576,14 @@
 	border-color:transparent;
 }
 /* Sinlge Product */
-.single-product{
-   background: #F7F7F7;
-   padding: 20px;
-   border-radius: 10px;
+.single-product {
+	background: #F7F7F7;
+	padding: 20px;
+	border-radius: 10px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .product-slider .owl-nav i{
@@ -1614,7 +1622,9 @@
   position: relative;
 }
 .single-product .product-img a img {
-  width: 100%;
+	width: 100%;
+	height: auto /* hoặc tùy chiều cao bạn muốn */
+	
 }
 
 .single-product .product-img a span.price-dec {
@@ -3947,7 +3957,7 @@
    Login & Register CSS
 ========================================*/
 .shop.login {
-	padding: 10px 0;
+	padding: 100px 0;
 }
 
 
@@ -5692,3 +5702,98 @@ transform: rotate(-180deg);
 /*=============================
 	End Footer CSS
 ===============================*/
+
+
+/*=============================
+	Start ProductsByCategory Css
+===============================*/
+/* Nút add to cart nhỏ: xanh lá (giống badge bg-success) */
+.btn-cart {
+	background-color: #198754; /* màu xanh lá Bootstrap "success" */
+	color: white;
+	border: none;
+	transition: background-color 0.3s ease, color 0.3s ease;
+	padding: 0;
+}
+
+.btn-cart i {
+	color: white;
+	font-size: 16px;
+}
+
+.btn-cart:hover {
+	background-color: #ffc107; /* vàng */
+	color: #212529;
+}
+
+.btn-cart:hover i {
+		color: #212529;
+	}
+
+/* Nút View Details màu outline xanh lá, hover vàng */
+.btn-cart-outline {
+	color: #198754;
+	border-color: #198754;
+	transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-cart-outline:hover {
+		background-color: #ffc107; /* vàng */
+		color: #212529;
+		border-color: #ffc107;
+}
+
+.btn-detail {
+	background-color: #198754;
+	color: white;
+	border: none;
+	transition: background-color 0.3s ease, color 0.3s ease;
+	padding: 0.375rem 0.75rem; /* bootstrap btn padding */
+	font-size: 1rem;
+	border-radius: 0.375rem;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+}
+
+.btn-detail:hover {
+		background-color: #ffc107;
+		color: #212529;
+}
+/* Style nút brand */
+.brand-pill {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	border: 1px solid #ddd;
+	border-radius: 30px;
+	padding: 4px 10px;
+	background-color: #f8f9fa;
+	color: #333;
+	font-weight: 500;
+	transition: all 0.3s ease;
+	
+}
+
+.brand-pill img {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+}
+
+.brand-pill:hover {
+	background-color: #007bff;
+	color: #fff;
+	border-color: #007bff;
+}
+
+.brand-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+.brand-filter-btn.active {
+	background-color: #32B87D; /* hoặc màu bạn muốn */
+	color: white;
+	border-color: black;
+}

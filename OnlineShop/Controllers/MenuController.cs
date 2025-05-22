@@ -22,7 +22,7 @@ namespace OnlineShop.Controllers
         public List<CategoryMenuViewModel> BuildCategoryMenu()
         {
             var rawData = new ProductModel().ListAll(); // gọi stored procedure lấy product + brand + category
-
+            
             var menu = rawData
                 .GroupBy(p => new { p.CategoryId, p.CategoryName })
                 .Select(categoryGroup => new CategoryMenuViewModel
@@ -55,6 +55,7 @@ namespace OnlineShop.Controllers
 
             return menu;
         }
+        
 
 
     }

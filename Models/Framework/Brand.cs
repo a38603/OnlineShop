@@ -23,7 +23,7 @@ namespace Models.Framework
         [StringLength(255)]
         public string Logo { get; set; }
 
-        // Quan h? 1:N v?i Product, ngh?a là m?t th??ng hi?u có th? có nhi?u s?n ph?m
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
        

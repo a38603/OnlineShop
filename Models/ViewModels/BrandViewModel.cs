@@ -10,6 +10,7 @@ namespace Models.ViewModels
     {
         public int BrandId { get; set; }
         public string BrandName { get; set; }
+        public string Logo { get; set; }
         public List<ProductViewModel> Products { get; set; } = new List<ProductViewModel>();
     }
 }

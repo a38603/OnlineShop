@@ -18,7 +18,9 @@ namespace OnlineShop.Controllers
             // Kiểm tra categoryId nhận được
             Debug.WriteLine($"CategoryId nhận được: {categoryId}");
             var products = productModel.GetProductsByCategory(categoryId);
+
             return View(products);
         }
+       
     }
 }

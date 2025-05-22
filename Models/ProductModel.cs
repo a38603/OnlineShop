@@ -8,6 +8,7 @@ using System.Data.Entity;
 using System.Threading.Tasks;
 using Models.Framework;
 using Models.ViewModels;
+using System.Web.Mvc;
 
 namespace Models
 {
@@ -95,6 +96,14 @@ namespace Models
                 "EXEC Sp_Product_GetByCategory @CategoryId",
                 new SqlParameter("@CategoryId", categoryId)).ToList();
         }
+        public List<ProductViewModel> GetProductsByBrand(int brandId)
+        {
+            return context.Database.SqlQuery<ProductViewModel>(
+                "EXEC Sp_Product_GetByBrand @BrandId",
+                new SqlParameter("@BrandId", brandId)
+            ).ToList();
+        }
+
     }
 }
 
