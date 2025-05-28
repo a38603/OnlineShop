@@ -14,6 +14,6 @@ namespace Models.ViewModels
         public IEnumerable<ProductTopRatingViewModel> TopRatings {  get; set; }
         public List<BrandViewModel> ProductByBrand { get; set; }
         public List<ProductViewModel> Products { get; set; }
-
+        public List<Blog> Blogs { get; set; }
     }
 }

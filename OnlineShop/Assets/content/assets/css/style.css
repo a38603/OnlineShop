@@ -2293,8 +2293,9 @@
 .shop.single .product-gallery .slides li img{
 	width:100%;
 }
-.shop.single .flex-control-nav{
-	margin-top:15px;
+.shop.single .flex-control-nav {
+	margin-top: 15px;
+	margin-left: 80px;
 }
 .shop.single .flex-control-thumbs li {
 	width: 20%;

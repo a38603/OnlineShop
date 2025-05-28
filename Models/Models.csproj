@@ -79,10 +79,15 @@
     <Compile Include="CategoryModel.cs" />
     <Compile Include="Framework\Account.cs" />
     <Compile Include="Framework\Brand.cs" />
+    <Compile Include="Framework\ProductImage.cs" />
+    <Compile Include="ViewModels\CartItem.cs" />
     <Compile Include="Framework\Category.cs" />
+    <Compile Include="Framework\Blog.cs" />
     <Compile Include="Framework\HomeSlider.cs" />
     <Compile Include="Framework\OnlineShopDbContext.cs" />
     <Compile Include="Framework\Product.cs" />
+    <Compile Include="ViewModels\ProductDetailFlatModel.cs" />
+    <Compile Include="ViewModels\ProductDetailViewModel.cs" />
     <Compile Include="ViewModels\ProductTopRatingViewModel.cs" />
     <Compile Include="Framework\sysdiagram.cs" />
     <Compile Include="ViewModels\BrandViewModel.cs" />

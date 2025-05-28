@@ -16,3 +16,77 @@
 <script src="~/Assets/content/assets/js/onepage-nav.min.js"></script>
 <script src="~/Assets/content/assets/js/easing.js"></script>
 <script src="~/Assets/content/assets/js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Load cart data khi hover vào giỏ hàng
+        $('.sinlge-bar.shopping').hover(function () {
+            $.ajax({
+                url: '@Url.Action("CartHeaderPartial", "Cart")',
+                type: 'GET',
+                success: function (data) {
+                    $('#header-cart').html(data);
+
+                    // Cập nhật số lượng sản phẩm vào .total-count
+                    var totalItems = $(data).find('.dropdown-cart-header span').text().split(' ')[0]; // Tách số đầu tiên
+                    $('.total-count').text(totalItems);
+                },
+                error: function () {
+                    console.log('Error loading cart');
+                }
+            });
+        });
+
+        // Cập nhật giỏ hàng sau khi thêm sp thành công
+        $(document).on('click', '.product-cart-btn', function () {
+            var productId = $(this).data('productid');
+            $.ajax({
+                url: '@Url.Action("AddToCart", "Cart")',
+                type: 'POST',
+                data: { productId: productId, quantity: 1 },
+                success: function (res) {
+                    if (res.success) {
+                        alert(res.message);
+
+                        // Gọi thêm GetCartCount để update số lượng trên icon giỏ hàng
+                        $.ajax({
+                            url: '@Url.Action("GetCartCount", "Cart")',
+                            type: 'GET',
+                            success: function (res) {
+                                $('.total-count').text(res.count);
+                            }
+                        });
+
+                        // Reload giỏ hàng header (optional)
+                        $.ajax({
+                            url: '@Url.Action("CartHeaderPartial", "Cart")',
+                            type: 'GET',
+                            success: function (data) {
+                                $('#header-cart').html(data);
+                            }
+                        });
+
+                    } else {
+                        alert(res.message);
+                    }
+                },
+                error: function () {
+                    alert('Lỗi khi thêm sản phẩm.');
+                }
+            });
+        });
+    });
+</script>
+<script>
+    function reloadCartHeader() {
+        $.ajax({
+            url: '/Cart/HeaderCart',
+            type: 'GET',
+            success: function (result) {
+                $('#header-cart').html(result);
+            }
+        });
+    }
+</script>
+
+

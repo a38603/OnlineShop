@@ -30,20 +30,22 @@ namespace OnlineShop.Controllers
             }
             else
             {
-                products = context.Database.SqlQuery<ProductViewModel>("Sp_Product_ListTop5Newest").ToList();
+                // Lấy tất cả sản phẩm với đầy đủ thông tin BrandName, CategoryName
+                products = context.Database.SqlQuery<ProductViewModel>("EXEC Sp_Product_listAll").ToList();
             }
 
             var sliders = context.Database.SqlQuery<HomeSlider>("Sp_HomeSlider_ListAll").ToList();
-           var topProducts = context.Database.SqlQuery<ProductViewModel>("Sp_Product_ListTop5Newest").ToList();
-           var topRating = context.Database.SqlQuery<ProductTopRatingViewModel>("Sp_Product_GetTop5ByRating").ToList();
-
-           var viewModel = new HomeIndexViewModel
+            var topProducts = context.Database.SqlQuery<ProductViewModel>("Sp_Product_ListTop5Newest").ToList();
+            var topRating = context.Database.SqlQuery<ProductTopRatingViewModel>("Sp_Product_GetTop5ByRating").ToList();
+            var blogs = context.Database.SqlQuery<Blog>( "SELECT TOP 3 * FROM Blogs ORDER BY PublishedDate DESC").ToList();
+            var viewModel = new HomeIndexViewModel
            {
                Sliders = sliders,
                TopProducts = topProducts,
                TopRatings = topRating,
                ProductByBrand = brands,  // danh sách brand hiện sẵn bên trái
-               Products = products
+               Products = products,
+               Blogs= blogs
            };
 
            return View(viewModel);

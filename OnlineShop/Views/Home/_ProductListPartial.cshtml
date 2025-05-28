@@ -9,18 +9,12 @@
             <div class="single-product">
                 <div class="product-img">
                     <a href="@Url.Action("Detail", "Product", new { id = product.ProductId })">
-                        <img class="product-img" src="~/Assets/Img_Products/@product.ProductImg " alt="@product.ProductName" />    
+                        <img class="product-img" src="~/Assets/Img_Products/@product.ProductImg " alt="@product.ProductName" />
                     </a>
-                    <div class="button-head">
-                        <div class="product-action">
-                            <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#"><i class="far fa-eye"></i><span>Quick Shop</span></a>
-                            <a href="#"><i class="far fa-heart"></i><span>Add to Wishlist</span></a>
-                            <a href="#"><i class="far fa-exchange"></i><span>Add to Compare</span></a>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="product-content">
-                    <h3><a href="@Url.Action("Detail", "Product", new { id = product.ProductId })">@product.ProductName</a></h3>
+                    <h6 class="card-title text-primary fw-bold">@product.ProductName</h6>
                     <div class="product-rate">
                         @for (int i = 1; i <= 5; i++)
                         {
@@ -38,8 +32,15 @@
                         <div class="product-price">
                             <span>$@product.Price.ToString("F2")</span>
                         </div>
-                        <button class="product-cart-btn" type="button"><i class="fal fa-shopping-cart"></i></button>
+                        <button class="product-cart-btn" data-productid="@product.ProductId" type="button"><i class="fal fa-shopping-cart"></i></button>
                     </div>
+                </div>
+            </div>
+            <div class="button-head">
+                <div class="product-action">
+                    <a href="@Url.Action("Detail", "Product", new { id = product.ProductId })" class="btn btn-outline-light w-100">
+                        <i class="fas fa-eye"></i> View Details
+                    </a>
                 </div>
             </div>
         </div>

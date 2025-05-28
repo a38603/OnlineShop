@@ -79,15 +79,6 @@
                 <div class="col-lg-7 col-md-6 col-12">
                     <div class="search-bar-top">
                         <div class="search-bar">
-                            @*<select>
-                                <option selected="selected">All Category</option>
-                                <option>Fashion</option>
-                                <option>Electronics</option>
-                                <option>Bikes</option>
-                                <option>Laptop</option>
-                                <option>Camera</option>
-                                <option>Health & Beauty</option>
-                            </select>*@
                             <form>
                                 <input name="search" placeholder="Search Products Here....." type="search">
                                 <button class="btnn"><i class="fas fa-search"></i></button>
@@ -104,40 +95,53 @@
                         <div class="sinlge-bar">
                             <a href="#" class="single-icon"><i class="fal fa-user-circle" aria-hidden="true"></i></a>
                         </div>
-                        <div class="sinlge-bar shopping">
-                            <a href="#" class="single-icon"><i class="fal fa-shopping-cart"></i> <span class="total-count">2</span></a>
 
-                            <div class="shopping-item">
+                        <div class="sinlge-bar shopping">
+                            <a href="#" class="single-icon">
+                                <i class="fal fa-shopping-cart"></i>
+                                <span class="total-count">
+                                    @((Session["CartSession"] as List<Models.ViewModels.CartItem>)?.Sum(x => x.Quantity) ?? 0)
+                                </span>
+                            </a>
+
+                            <div class="shopping-item" id="header-cart">
+
                                 <div class="dropdown-cart-header">
-                                    <span>2 Items</span>
-                                    <a href="#">View Cart</a>
+                                    <span>@((Session["CartSession"] as List<Models.ViewModels.CartItem>)?.Sum(x => x.Quantity) ?? 0) Items</span>
+                                    <a href="@Url.Action("Index", "Cart")">View Cart</a>
+
                                 </div>
+
                                 <ul class="shopping-list">
-                                    <li>
-                                        <a href="#" class="remove" title="Remove this item"><i class="fal fa-times-circle"></i></a>
-                                        <a class="cart-img" href="#"><img src="~/Assets/content/assets/img/products/p22.png" alt="#"></a>
-                                        <h4><a href="#">Xamaha R15 Blue</a></h4>
-                                        <p class="quantity">1x - <span class="amount">$200.00</span></p>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="remove" title="Remove this item"><i class="fal fa-times-circle"></i></a>
-                                        <a class="cart-img" href="#"><img src="~/Assets/content/assets/img/products/p3.png" alt="#"></a>
-                                        <h4><a href="#">Apple Earphones</a></h4>
-                                        <p class="quantity">1x - <span class="amount">$150.00</span></p>
-                                    </li>
+                                    @if (Session["CartSession"] is List<Models.ViewModels.CartItem> cart && cart.Any())
+                                    {
+                                        foreach (var item in cart)
+                                        {
+                                            <li>
+                                                <a href="#" class="remove" title="Remove this item"><i class="fal fa-times-circle"></i></a>
+                                                <a class="cart-img" href="#">
+                                                    <img src="~/Assets/Img_Products/@item.ProductImg" alt="@item.ProductName" />
+                                                </a>
+                                                <h4><a href="#">@item.ProductName</a></h4>
+                                                <p class="quantity">@item.Quantity x - <span class="amount">$@item.Price.ToString("F2")</span></p>
+                                            </li>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <li>Giỏ hàng trống</li>
+                                    }
                                 </ul>
-                                <div class="bottom">
-                                    <div class="total">
-                                        <span>Total</span>
-                                        <span class="total-amount">$350.00</span>
-                                    </div>
-                                    <a href="checkout.html" class="btn animate">Checkout</a>
-                                </div>
+
                             </div>
 
                         </div>
+
                     </div>
                 </div>
+
+
+
             </div>
         </div>
     </div>
@@ -153,7 +157,7 @@
                                 <h3 class="cat-heading">CATEGORIES</h3>
                             </div>
                             <ul class="main-category hover-category">
-                               
+
                                 <li class="main-mega">
                                     @Html.Action("CategoryMenu", "Menu")
                             </ul>
@@ -225,16 +229,10 @@
                                                     <li><a href="404.html">404</a></li>
                                                 </ul>
                                             </li>
-                                            <li>
-                                                <a href="#">Blog<i class="ti-angle-down"></i></a>
-                                                <ul class="dropdown">
-                                                    <li><a href="blog-grid.html">Blog Grid</a></li>
-                                                    <li><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
-                                                    <li><a href="blog-single.html">Blog Single</a></li>
-                                                    <li><a href="blog-single-sidebar.html">Blog Single Sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact Us</a></li>
+
+                                            <li>@Html.ActionLink("Blogs", "Index", "Blog")</li>
+
+                                            <li>@Html.ActionLink("ContactUs", "Contact", "Home")</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -246,5 +244,7 @@
             </div>
         </div>
     </div>
+   
+    
 
 </header>

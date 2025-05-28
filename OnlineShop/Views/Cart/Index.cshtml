@@ -1,0 +1,59 @@
+﻿@model List<Models.ViewModels.CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@{
+    ViewBag.Title = "Giỏ hàng của bạn";
+    var totalPrice = Model.Sum(x => x.Total);
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">GIỎ HÀNG</h2>
+
+    @if (Model.Count == 0)
+    {
+        <p class="text-center text-danger">Giỏ hàng của bạn đang trống.</p>
+    }
+    else
+    {
+        <table class="table table-bordered mt-4">
+            <thead>
+                <tr>
+                    <th>Ảnh</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="~/Assets/Img_Products/@item.ProductImg" alt="@item.ProductName" width="80">
+                        </td>
+                        <td>@item.ProductName</td>
+                        <td>@item.Price.ToString("N0") ₫</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Total.ToString("N0") ₫</td>
+                        <td>
+                            <a href="@Url.Action("Remove", "Cart", new { id = item.ProductId })" class="btn btn-danger btn-sm">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="text-end mt-3">
+            <h4>Tổng cộng: <span class="text-danger">@totalPrice.ToString("N0") ₫</span></h4>
+            <a href="@Url.Action("Checkout", "Cart")" class="btn btn-success">Tiến hành đặt hàng</a>
+        </div>
+    }
+</div>
+

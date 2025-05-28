@@ -138,6 +138,8 @@
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
@@ -1868,12 +1870,6 @@
     <Content Include="Assets\content\assets\fonts\flaticon.svg" />
     <Content Include="Assets\content\assets\fonts\themify.svg" />
     <Content Include="Assets\content\assets\img\about.jpg" />
-    <Content Include="Assets\content\assets\img\blog\1.jpg" />
-    <Content Include="Assets\content\assets\img\blog\2.jpg" />
-    <Content Include="Assets\content\assets\img\blog\3.jpg" />
-    <Content Include="Assets\content\assets\img\blog\com.jpg" />
-    <Content Include="Assets\content\assets\img\blog\single.jpg" />
-    <Content Include="Assets\content\assets\img\deal.jpg" />
     <Content Include="Assets\content\assets\img\download\app-store.PNG" />
     <Content Include="Assets\content\assets\img\download\play-store.PNG" />
     <Content Include="Assets\content\assets\img\favicon.png" />
@@ -1885,39 +1881,10 @@
     <Content Include="Assets\content\assets\img\mega-menu\1.jpg" />
     <Content Include="Assets\content\assets\img\mega-menu\2.jpg" />
     <Content Include="Assets\content\assets\img\mega-menu\3.jpg" />
-    <Content Include="Assets\content\assets\img\mid-banner1.jpg" />
-    <Content Include="Assets\content\assets\img\mid-banner2.jpg" />
-    <Content Include="Assets\content\assets\img\mini-banner1.jpg" />
-    <Content Include="Assets\content\assets\img\mini-banner2.jpg" />
-    <Content Include="Assets\content\assets\img\mini-banner3.jpg" />
     <Content Include="Assets\content\assets\img\payment\Amex.svg" />
     <Content Include="Assets\content\assets\img\payment\Mastercard.svg" />
     <Content Include="Assets\content\assets\img\payment\PayPal.svg" />
     <Content Include="Assets\content\assets\img\payment\Visa.svg" />
-    <Content Include="Assets\content\assets\img\products\p1.png" />
-    <Content Include="Assets\content\assets\img\products\p10.png" />
-    <Content Include="Assets\content\assets\img\products\p11.png" />
-    <Content Include="Assets\content\assets\img\products\p13.png" />
-    <Content Include="Assets\content\assets\img\products\p14.png" />
-    <Content Include="Assets\content\assets\img\products\p16.png" />
-    <Content Include="Assets\content\assets\img\products\p17.png" />
-    <Content Include="Assets\content\assets\img\products\p18.png" />
-    <Content Include="Assets\content\assets\img\products\p2.png" />
-    <Content Include="Assets\content\assets\img\products\p20.png" />
-    <Content Include="Assets\content\assets\img\products\p21.png" />
-    <Content Include="Assets\content\assets\img\products\p22.png" />
-    <Content Include="Assets\content\assets\img\products\p23.png" />
-    <Content Include="Assets\content\assets\img\products\p24.png" />
-    <Content Include="Assets\content\assets\img\products\p3.png" />
-    <Content Include="Assets\content\assets\img\products\p35.png" />
-    <Content Include="Assets\content\assets\img\products\p4.png" />
-    <Content Include="Assets\content\assets\img\products\p5.png" />
-    <Content Include="Assets\content\assets\img\products\p6.png" />
-    <Content Include="Assets\content\assets\img\products\p7.png" />
-    <Content Include="Assets\content\assets\img\products\p8.png" />
-    <Content Include="Assets\content\assets\img\products\p9.png" />
-    <Content Include="Assets\content\assets\img\products\review.jpg" />
-    <Content Include="Assets\content\assets\img\shop-banner.jpg" />
     <Content Include="Assets\content\assets\img\slider\1.png" />
     <Content Include="Assets\content\assets\img\slider\2.png" />
     <Content Include="Assets\content\assets\img\slider\3.png" />
@@ -2300,10 +2267,14 @@
     <Content Include="Views\Shared\_CategoryMenu.cshtml" />
     <Content Include="Views\Product\ProductsByCategory.cshtml" />
     <Content Include="Views\Home\_ProductListPartial.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Blog\Detail.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Shared\_CartHeaderPartial.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\content\assets\images\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Menu\" />
   </ItemGroup>

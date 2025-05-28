@@ -1,0 +1,32 @@
+﻿@model List<Models.ViewModels.CartItem>
+
+<span class="total-count">@Model.Sum(x => x.Quantity)</span>
+
+<div class="shopping-item">
+    <div class="dropdown-cart-header">
+        <span>@Model.Sum(x => x.Quantity) Items</span>
+        <a href="@Url.Action("Index", "Cart")">View Cart</a>
+    </div>
+
+    <ul class="shopping-list">
+        @foreach (var item in Model)
+        {
+            <li>
+                <a href="#" class="remove" title="Remove this item"><i class="fal fa-times-circle"></i></a>
+                <a class="cart-img" href="#"><img src="~/Assets/Img_Products/@item.ProductImg" alt="@item.ProductName" /></a>
+                <h4><a href="#">@item.ProductName</a></h4>
+                <p class="quantity">@item.Quantity x - <span class="amount">$@item.Price.ToString("F2")</span></p>
+            </li>
+        }
+    </ul>
+
+    <div class="bottom">
+        <div class="total">
+            <span>Total</span>
+            <span class="total-amount">
+                $@Model.Sum(x => x.Price * x.Quantity).ToString("F2")
+            </span>
+        </div>
+        <a href="@Url.Action("Checkout", "Order")" class="btn animate">Checkout</a>
+    </div>
+</div>

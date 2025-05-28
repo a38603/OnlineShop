@@ -26,7 +26,10 @@
         public decimal? Rating { get; set; }
 
         public DateTime? CreatedAt { get; set; }
+
+       
         public string BrandName { get; set; }
+
         public string CategoryName { get; set; }
 
         // Các thuộc tính điều hướng để truy cập đối tượng Brand và Category

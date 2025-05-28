@@ -37,13 +37,10 @@
                             <div class="d-flex align-items-center gap-2">
                                 <span class="badge bg-success">⭐ @product.Rating</span>
 
-                                <form asp-controller="Cart" asp-action="AddToCart" method="post" class="m-0">
-                                    <input type="hidden" name="productId" value="@product.ProductId" />
-                                    <button type="submit" class="btn btn-sm btn-cart p-1 d-flex align-items-center justify-content-center"
-                                            style="width: 30px; height: 30px;" title="Add to cart">
-                                        <i class="fas fa-cart-plus"></i>
-                                    </button>
-                                </form>
+                                <button type="button" class="btn btn-sm btn-cart p-1 d-flex align-items-center justify-content-center product-cart-btn"
+                                        style="width: 30px; height: 30px;" title="Add to cart" data-productid="@product.ProductId">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
                             </div>
                             <small class="text-muted">@product.Stock in stock</small>
                         </div>
@@ -51,7 +48,7 @@
 
                     <div class="card-footer bg-white border-0">
                         <div class="d-grid gap-2">
-                            <a href="/Product/Details/@product.ProductId" class="btn btn-detail">View Details</a>
+                            <a href="/Product/Detail/@product.ProductId" class="btn btn-detail">View Details</a>
                         </div>
                     </div>
                 </div>

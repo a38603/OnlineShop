@@ -1,0 +1,91 @@
+﻿@model Models.ViewModels.ProductDetailViewModel
+
+<section class="shop single section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+
+                    <!-- PHẦN ẢNH SẢN PHẨM -->
+                    <div class="col-lg-5 col-12">
+                        <div class="product-gallery">
+
+                            <div class="flexslider-thumbnails">
+                                <ul class="slides">
+                                    <li data-thumb="@Url.Content("~/Assets/Img_Products/" + Model.ProductImg)" rel="adjustX:10, adjustY:">
+                                        <img src="@Url.Content("~/Assets/Img_Products/" + Model.ProductImg)" alt="@Model.ProductName" />
+                                    </li>
+                                    @if (Model.ProductImages != null && Model.ProductImages.Any())
+                                    {
+                                        foreach (var img in Model.ProductImages)
+                                        {
+                                            <li data-thumb="@Url.Content("~/Assets/Img_Details/" + img.ImageName)" rel="adjustX:10, adjustY:">
+                                                <img src="@Url.Content("~/Assets/Img_Details/" + img.ImageName)" alt="@Model.ProductName" />
+                                            </li>
+
+                                        }
+                                    }
+                                    
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- PHẦN THÔNG TIN SẢN PHẨM -->
+                    <div class="col-lg-7 col-12">
+                        <div class="product-des">
+
+                            <div class="short">
+                                <h4>@Model.ProductName</h4>
+
+                                <div class="rating-main">
+                                    <ul class="rating">
+                                        @{
+                                            var fullStars = (int)Math.Floor(Model.Rating);
+                                            var halfStar = (Model.Rating - fullStars) >= 0.5m;
+                                            var emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+
+                                            for (int i = 0; i < fullStars; i++)
+                                            {
+                                                <li><i class="fas fa-star"></i></li>
+                                            }
+                                            if (halfStar)
+                                            {
+                                                <li><i class="fas fa-star-half-alt"></i></li>
+                                            }
+                                            for (int i = 0; i < emptyStars; i++)
+                                            {
+                                                <li><i class="fal fa-star"></i></li>
+                                            }
+                                        }
+                                    </ul>
+                                    <a href="#" class="total-review">(80) Review</a>
+                                </div>
+
+                                <p class="price">
+                                    <span class="discount">@Model.Price</span>
+                                    
+                                </p>
+                            </div>
+
+
+                            <div class="product-buy">
+                                <div class="add-to-cart">
+                                    <button class="btn min product-cart-btn" data-productid="@Model.ProductId" type="button">Add To Cart</button>
+                                    
+                                </div>
+                                <div class="single-product-info">
+                                    <p>Brand : <a href="#">@Model.BrandName</a></p>
+                                    <p>Availability : <span>@Model.Stock sản phẩm trong kho</span></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

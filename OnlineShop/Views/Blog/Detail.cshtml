@@ -1,0 +1,105 @@
+﻿@model Models.Framework.Blog
+
+<section class="blog-single section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 col-12">
+                <div class="blog-single-main">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="image">
+                                <img src="~/Assets/Img_Blogs/@Model.BlogImg" alt="@Model.Title">
+                            </div>
+                            <div class="blog-detail">
+                                <h2 class="blog-title">@Model.Summary</h2>
+                                
+                                <div class="blog-meta">
+                                    <span class="author">
+                                        <i class="fal fa-user"></i>By Admin
+                                        <i class="fal fa-calendar"></i>@Model.PublishedDate.ToString("dd MMM, yyyy")
+                                        <i class="fal fa-comments"></i>Comment (10)
+                                    </span>
+                                </div>
+                                <div class="content">
+                                    @Html.Raw(Model.Content)
+                                </div>
+                            </div>
+                            <div class="share-social">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="content-tags">
+                                            <h4>Tags:</h4>
+                                            <ul class="tag-inner">
+                                                <li><a href="#">Bike</a></li>
+                                                <li><a href="#">Cloths</a></li>
+                                                <li><a href="#">Health</a></li>
+                                                <li><a href="#">Sweater</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Comments section -->
+                        <div class="col-12">
+                            <div class="comments">
+                                <h3 class="comment-title">Comments (1)</h3>
+
+                                <!-- Sample comments (tạm để mẫu) -->
+                                <div class="single-comment">
+                                    <img src="~/Assets/content/assets/img/blog/com.jpg" alt="#">
+                                    <div class="content">
+                                        <h4>Wayne J Hutto <span>May 28, 2021</span></h4>
+                                        <p>This is a sample comment for layout demo.</p>
+                                        <div class="button">
+                                            <a href="#" class="btn"><i class="fa fa-reply" aria-hidden="true"></i>Reply</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- More comments... -->
+                            </div>
+                        </div>
+
+                        <!-- Reply form -->
+                        <div class="col-12">
+                            <div class="reply">
+                                <div class="reply-head">
+                                    <h2 class="reply-title">Leave a Comment</h2>
+                                    <form class="form" action="#">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label>Your Name<span>*</span></label>
+                                                    <input type="text" name="name" placeholder required="required">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label>Your Email<span>*</span></label>
+                                                    <input type="email" name="email" placeholder required="required">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label>Your Message<span>*</span></label>
+                                                    <textarea name="message" placeholder></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group button">
+                                                    <button type="submit" class="btn">Post comment</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End reply form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -74,16 +74,11 @@
                                     <img class="product-img" src="~/Assets/Img_Products/@product.ProductImg" alt="@product.ProductName" />
                                     <span class="new">New</span>
                                 </a>
-                                <div class="button-head">
-                                    <div class="product-action">
-                                        <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#"><i class="fas fa-eye"></i><span>Quick Shop</span></a>
-                                        <a href="#"><i class="fas fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a href="#"><i class="fas fa-exchange"></i><span>Add to Compare</span></a>
-                                    </div>
-                                </div>
+
                             </div>
                             <div class="product-content">
-                                <h3><a href="#">@product.ProductName</a></h3>
+                                @*<h3><a href="@Url.Action("Detail", "Product", new { id = product.ProductId })">@product.ProductName</a></h3>*@
+                                <h6 class="card-title text-primary fw-bold">@product.ProductName</h6>   
                                 <div class="product-rate">
                                     @for (int i = 1; i <= 5; i++)
                                     {
@@ -97,16 +92,27 @@
                                         }
                                     }
                                 </div>
+
                                 <div class="d-flex justify-content-between">
-                                    <div class="product-price">
+                                    <div class="product-price me-auto">
                                         <span>$@product.Price</span>
                                     </div>
-                                    <button class="product-cart-btn" type="button"><i class="fas fa-shopping-cart"></i></button>
+                                    <button class="product-cart-btn" data-productid="@product.ProductId" type="button"><i class="fal fa-shopping-cart"></i></button>
                                 </div>
+
                             </div>
                         </div>
+                        <div class="button-head">
+                            <div class="product-action">
+                                <a href="@Url.Action("Detail", "Product", new { id = product.ProductId })" class="btn btn-outline-light w-100">
+                                    <i class="fas fa-eye"></i> View Details
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
                 }
+
             </div>
         </div>
     </div>
@@ -118,11 +124,11 @@
 
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="single-banner">
-                        <img src="~/Assets/content/assets/img/mid-banner1.jpg" alt="#">
+                        <img src="~/Assets/Img_Collections/collection_Oppo.png" alt="#">
                         <div class="content">
-                            <p>Top Collectons</p>
-                            <h3>Women's Shirt <br>Up to<span> 50%</span></h3>
-                            <a href="#">Shop Now</a>
+                            <p>New Product</p>
+                            <h3>Oppo find X8<br>Up to<span> 50%</span></h3>
+                            <a href="/Product/Detail/34">Shop Now</a>
                         </div>
                     </div>
                 </div>
@@ -130,11 +136,11 @@
 
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="single-banner">
-                        <img src="~/Assets/content/assets/img/mid-banner2.jpg" alt="#">
+                        <img src="~/Assets/Img_Collections/collection_ap4.png" alt="#">
                         <div class="content">
-                            <p>women shoes</p>
-                            <h3>summer Collectons <br> up to <span>30%</span></h3>
-                            <a href="#" class="btn">Shop Now</a>
+                            <p>Best seller</p>
+                            <h3>Airpod 4 <br> up to <span>30%</span></h3>
+                            <a href="/Product/Detail/26" class="btn">Shop Now</a>
                         </div>
                     </div>
                 </div>
@@ -167,18 +173,11 @@
                             <div class="product-img">
                                 <a href="@Url.Action("Detail", "Product", new { id = product.ProductId })">
                                     <img class="product-img" src="~/Assets/Img_Products/@product.ProductImg " alt="@product.ProductName" />
-                                    <span class="out-of-stock">Hot</span>  @* Bạn có thể đổi thành "Hot" hay bất cứ nhãn nào *@
+                                    <span class="out-of-stock">Hot</span>
                                 </a>
-                                <div class="button-head">
-                                    <div class="product-action">
-                                        <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#"><i class="far fa-eye"></i><span>Quick Shop</span></a>
-                                        <a href="#"><i class="far fa-heart"></i><span>Add to Wishlist</span></a>
-                                        <a href="#"><i class="far fa-exchange"></i><span>Add to Compare</span></a>
-                                    </div>
-                                </div>
                             </div>
                             <div class="product-content">
-                                <h3><a href="@Url.Action("Detail", "Product", new { id = product.ProductId })">@product.ProductName</a></h3>
+                                <h6 class="card-title text-primary fw-bold">@product.ProductName</h6>
                                 <div class="product-rate">
                                     @for (int i = 1; i <= 5; i++)
                                     {
@@ -196,8 +195,15 @@
                                     <div class="product-price">
                                         <span>$@product.Price.ToString("F2")</span>
                                     </div>
-                                    <button class="product-cart-btn" type="button"><i class="fal fa-shopping-cart"></i></button>
+                                    <button class="product-cart-btn" data-productid="@product.ProductId" type="button"><i class="fal fa-shopping-cart"></i></button>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="button-head">
+                            <div class="product-action">
+                                <a href="@Url.Action("Detail", "Product", new { id = product.ProductId })" class="btn btn-outline-light w-100">
+                                    <i class="fas fa-eye"></i> View Details
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -223,7 +229,7 @@
                                     @brand.BrandName
                                 </button>
                             }
-                            
+
                         </div>
 
                     </div>
@@ -285,36 +291,68 @@
         </script>
     }
 
-    <section class="cown-down">
-        <div class="section-inner">
-            <div class="container-fluid p-0">
-                <div class="row g-0">
-                    <div class="col-lg-6 col-12">
-                        <div class="image">
-                            <img src="~/Assets/content/assets/img/deal.jpg" alt="#">
+
+
+    <section class="shop-blog section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title d-flex justify-content-between align-center">
+                        <div class="d-flex section-title-left">
+                            <i class="fas fa-blog"></i>
+                            <h2>Latest News</h2>
+                        </div>
+                        <div class="section-title-right">
+                            <a href="@Url.Action("Index", "Blog")" class="your-class">View More <i class="fas fa-long-arrow-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-12">
-                        <div class="content">
-                            <div class="heading-block">
-                                <p class="small-title">Todays Deal</p>
-                                <h3 class="title">Sweater New Trending 2021</h3>
-                                <p class="text">There are many variations of passages of lorem ipsum available but the majority have suffered alteration in some form.</p>
-                                <h1 class="price">$1000 <s>$1500</s></h1>
-                                <div class="coming-time">
-                                    <div class="clearfix" data-countdown="2024/12/30"></div>
-                                </div>
-                                <div class="mt-5">
-                                    <a href="#" class="count-buy-btn">Buy Now</a>
-                                </div>
+                </div>
+            </div>
+
+            <div class="row">
+                @foreach (var blog in Model.Blogs)
+                {
+                    <div class="col-lg-4 col-md-6 col-12 mb-4">
+                        <div class="shop-single-blog">
+                            <img src="~/Assets/Img_Blogs/@blog.BlogImg" alt="@blog.Title" class="img-fluid">
+                            <div class="content">
+                                <p class="date">@blog.PublishedDate.ToString("dd MMM, yyyy. dddd")</p>
+                                <a href="#" class="title">@blog.Title</a>
+                                <p>@(blog.Summary.Length > 100 ? blog.Summary.Substring(0, 100) + "..." : blog.Summary)</p>
+                                <a href="@Url.Action("Detail", "Blog", new { id = blog.BlogId })" class="more-btn">Read More <i class="far fa-long-arrow-right"></i></a>
+
                             </div>
                         </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section class="shop-newsletter py-5">
+        <div class="container">
+            <div class="inner-top">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 col-12">
+
+                        <div class="inner">
+                            <h4>Newsletter</h4>
+                            <p> Subscribe to our newsletter and get <span>30%</span> off your first purchase</p>
+                            <form action="#" method="get" class="newsletter-inner">
+                                <input name="email" placeholder="Your email address" required="" type="email">
+                                <button class="btn">Subscribe <i class="fal fa-paper-plane"></i></button>
+                            </form>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <section class="shop-services section home">
         <div class="container">
             <div class="row">
@@ -359,146 +397,6 @@
     </section>
 
 
-    <section class="shop-blog section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title d-flex justify-content-between align-center">
-                        <div class="d-flex section-title-left">
-                            <i class="fas fa-blog"></i>
-                            <h2>Latest News</h2>
-                        </div>
-                        <div class="section-title-right">
-                            <a href="#">View More <i class="fas fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-12">
-
-                    <div class="shop-single-blog">
-                        <img src="~/Assets/content/assets/img/blog/1.jpg" alt="#">
-                        <div class="content">
-                            <p class="date">30 May, 2021. Sunday</p>
-                            <a href="#" class="title">There are many variations available</a>
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                            <a href="#" class="more-btn">Read More <i class="far fa-long-arrow-right"></i> </a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-
-                    <div class="shop-single-blog">
-                        <img src="~/Assets/content/assets/img/blog/2.jpg" alt="#">
-                        <div class="content">
-                            <p class="date">30 May, 2021. Sunday</p>
-                            <a href="#" class="title">There are many variations available</a>
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                            <a href="#" class="more-btn">Read More <i class="far fa-long-arrow-right"></i> </a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-
-                    <div class="shop-single-blog">
-                        <img src="~/Assets/content/assets/img/blog/3.jpg" alt="#">
-                        <div class="content">
-                            <p class="date">30 May, 2021. Sunday</p>
-                            <a href="#" class="title">There are many variations available</a>
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                            <a href="#" class="more-btn">Read More <i class="far fa-long-arrow-right"></i> </a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="shop-newsletter py-5">
-        <div class="container">
-            <div class="inner-top">
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2 col-12">
-
-                        <div class="inner">
-                            <h4>Newsletter</h4>
-                            <p> Subscribe to our newsletter and get <span>30%</span> off your first purchase</p>
-                            <form action="#" method="get" class="newsletter-inner">
-                                <input name="email" placeholder="Your email address" required="" type="email">
-                                <button class="btn">Subscribe <i class="fal fa-paper-plane"></i></button>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <div class="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                            <img src="~/Assets/content/assets/img/products/p1.png" alt="#">
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                            <div class="quickview-content">
-                                <h2>Xbeats Bluetooth Earphones</h2>
-                                <div class="d-flex mb-3">
-                                    <span>Brand:</span>
-                                    <b>Xbeats</b>
-                                </div>
-                                <div class="d-flex mb-3">
-                                    <span>Category:</span>
-                                    <b>Headphones</b>
-                                </div>
-                                <div class="d-flex mb-3">
-                                    <span>Tated:</span>
-                                    <div class="quickview-ratting-review">
-                                        <div class="quickview-ratting-wrap">
-                                            <div class="quickview-ratting">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fal fa-star"></i>
-                                                <a href="#"> (50)</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h3>$29.00</h3>
-                                <div class="quickview-stock">
-                                    <span><i class="fa fa-check-circle-o"></i> Stock Available</span>
-                                </div>
-                                <div class="add-to-cart">
-                                    <a href="#" class="btn">Add to cart</a>
-                                </div>
-                                <div class="default-social">
-                                    <h4 class="share-now">Share:</h4>
-                                    <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
 </body>
+
 </html>
