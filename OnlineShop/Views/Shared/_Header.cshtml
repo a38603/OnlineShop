@@ -61,31 +61,39 @@
                         <a href="index.html"><img src="~/Assets/content/assets/img/logo.png" alt="logo"></a>
                     </div>
 
-
+                    <!-- Phần Search Top -->
                     <div class="search-top">
-                        <div class="top-search"><a href="#0"><i class="far fa-search"></i></a></div>
-
-                        <div class="search-top">
-                            <form class="search-form">
-                                <input type="text" placeholder="Search here..." name="search">
-                                <button value="search" type="submit"><i class="far fa-search"></i></button>
-                            </form>
+                        <div class="top-search">
+                            <a href="#0"><i class="fas fa-search"></i></a>
                         </div>
 
+                        <div class="search-top">
+                            <form class="search-form" method="get"  action="@Url.Action("Search", "Product")">
+                                <input value="@Request.QueryString["searchString"]" type="text" placeholder="Search here..." name="searchString">
+                                <button type="submit" value="search"><i class="fas fa-search"></i></button>
+                            </form>
+                        </div>
                     </div>
 
                     <div class="mobile-nav"></div>
                 </div>
-                <div class="col-lg-7 col-md-6 col-12">
-                    <div class="search-bar-top">
-                        <div class="search-bar">
-                            <form>
-                                <input name="search" placeholder="Search Products Here....." type="search">
-                                <button class="btnn"><i class="fas fa-search"></i></button>
-                            </form>
+
+                    <!-- Phần Search Bar Top -->
+                    <div class="col-lg-7 col-md-6 col-12">
+                        <div class="search-bar-top">
+                            <div class="search-bar">
+                                <form method="get" action="@Url.Action("Search", "Product")" >
+                                    <input value="@Request.QueryString["searchString"]" name="searchString" placeholder="Search Products Here....." type="search">
+                                    <button class="btnn" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+
+
                 <div class="col-lg-2 col-md-3 col-12">
                     <div class="right-bar">
 
@@ -232,7 +240,7 @@
 
                                             <li>@Html.ActionLink("Blogs", "Index", "Blog")</li>
 
-                                            <li>@Html.ActionLink("ContactUs", "Contact", "Home")</li>
+                                            <li>@Html.ActionLink("ContactUs", "Index", "Contact")</li>
                                         </ul>
                                     </div>
                                 </div>

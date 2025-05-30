@@ -1,6 +1,10 @@
 ﻿<!-- Scripts chung toàn site -->
 <script data-cfasync="false" src="~/Assets/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script src="~/Assets/content/assets/js/jquery-3.6.0.min.js"></script>
+
+<!-- jQuery -->
+<script src="~/Assets/lib/jquery/dist/jquery.min.js"></script>
+
+<!-- Các plugin phụ thuộc jQuery -->
 <script src="~/Assets/content/assets/js/jquery-ui.min.js"></script>
 <script src="~/Assets/content/assets/js/bootstrap.bundle.min.js"></script>
 <script src="~/Assets/content/assets/js/slicknav.min.js"></script>
@@ -15,8 +19,9 @@
 <script src="~/Assets/content/assets/js/scrollup.js"></script>
 <script src="~/Assets/content/assets/js/onepage-nav.min.js"></script>
 <script src="~/Assets/content/assets/js/easing.js"></script>
+
+<!-- Main script cuối cùng -->
 <script src="~/Assets/content/assets/js/main.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
         // Load cart data khi hover vào giỏ hàng
@@ -88,5 +93,35 @@
         });
     }
 </script>
+<script>
+    $(document).ready(function () {
+        // Khi click chọn brand
+        $('.brand-filter-btn').click(function () {
+            $('.brand-filter-btn').removeClass('active');
+            $(this).addClass('active');
 
+            var brandId = $(this).data('brandid');
+            var url = '/Home/GetProductsByBrand';
+
+            if (brandId !== undefined && brandId !== "") {
+                url += '?brandId=' + brandId;
+            }
+
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function (result) {
+                    $('#product-list').html(result);
+                },
+                error: function (xhr) {
+                    alert("Lỗi khi tải sản phẩm! Chi tiết: " + xhr.statusText);
+                }
+            });
+        });
+
+        // ✅ Tự động gọi AJAX để hiển thị tất cả sản phẩm ngay khi load
+        $('.brand-filter-btn[data-brandid=""]').trigger('click');
+    });
+
+</script>
 

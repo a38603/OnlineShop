@@ -64,6 +64,19 @@ namespace OnlineShop.Controllers
 
             return View(productDetail);
         }
+        public ActionResult Search(string searchString)
+        {
+            // Nếu searchString null hoặc rỗng thì truyền DBNull.Value để stored procedure hiểu đúng
+            var param = string.IsNullOrEmpty(searchString) ? (object)DBNull.Value : searchString;
+
+            var products = context.Database.SqlQuery<ProductViewModel>("EXEC Sp_Product_SearchByName @p0", param).ToList();
+
+            ViewBag.Keyword = searchString;
+            ViewBag.ResultCount = products.Count;
+
+            return View(products);
+        }
+
 
 
 

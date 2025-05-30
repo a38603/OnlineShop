@@ -1926,6 +1926,9 @@
     <Content Include="Assets\Img_Products\macbookairm2.jpg" />
     <Content Include="Assets\Img_Products\s24ultra.jpg" />
     <Content Include="Assets\Img_Products\xiaomipad6.jpg" />
+    <Content Include="Assets\Img_Silder\slider-2.png" />
+    <Content Include="Assets\Img_Silder\slider-3.png" />
+    <Content Include="Assets\Img_Silder\slider.png" />
     <Content Include="Assets\lib\bootstrap\dist\css\bootstrap-grid.css" />
     <Content Include="Assets\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
     <Content Include="Assets\lib\bootstrap\dist\css\bootstrap-grid.rtl.css" />
@@ -2246,7 +2249,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
@@ -2272,6 +2274,7 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Shared\_CartHeaderPartial.cshtml" />
     <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Product\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

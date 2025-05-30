@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Models.ViewModels.ProductViewModel>
+
+@{
+    ViewBag.Title = "Danh sách sản phẩm";
+}
+
+
+<div class="container py-4">
+    @if (!string.IsNullOrEmpty(ViewBag.Keyword))
+    {
+        if (ViewBag.ResultCount > 0)
+        {
+            <div class="alert alert-info text-center">
+                Tìm thấy <strong>@ViewBag.ResultCount</strong> sản phẩm cho từ khoá '<strong>@ViewBag.Keyword</strong>'
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                @foreach (var product in Model)
+                {
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="@Url.Content("~/Assets/Img_Products/" + product.ProductImg)"
+                                 class="card-img-top p-3"
+                                 alt="@product.ProductName"
+                                 style="object-fit: contain; height: 180px;">
+
+                            <div class="card-body">
+                                <h6 class="card-title text-primary fw-bold">@product.ProductName</h6>
+                                <p class="mb-1"><strong>Price:</strong> @product.Price.ToString("C")</p>
+                                <p class="mb-1"><strong>Brand:</strong> @product.BrandName</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="badge bg-success">⭐ @product.Rating</span>
+
+                                        <button type="button" class="btn btn-sm btn-cart p-1 d-flex align-items-center justify-content-center product-cart-btn" style="width: 30px; height: 30px;" title="Add to cart" data-productid="@product.ProductId">
+                                            <i class="fas fa-cart-plus"></i>
+                                        </button>
+                                    </div>
+                                    <small class="text-muted">@product.Stock in stock</small>
+                                </div>
+                            </div>
+
+                            <div class="card-footer bg-white border-0">
+                                <div class="d-grid gap-2">
+                                    <a href="@Url.Action("Detail", "Product", new { id = product.ProductId })" class="btn btn-detail">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-danger text-center">
+                Không tìm thấy sản phẩm nào liên quan đến từ khoá '<strong>@ViewBag.Keyword</strong>'.
+            </div>
+        }
+    }
+    else
+    {
+        <div class="alert alert-secondary">
+            Vui lòng nhập từ khoá để tìm kiếm sản phẩm.
+        </div>
+    }
+</div>

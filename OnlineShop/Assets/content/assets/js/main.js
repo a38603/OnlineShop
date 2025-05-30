@@ -72,7 +72,7 @@
 			nav:true,
 			autoplayHoverPause:true,
 			dots:false,
-			navText: ['<i class="far fa-arrow-left"></i>', '<i class="far fa-arrow-right"></i>'],
+			navText: ['<i class="fas fa-arrow-left"></i>', '<i class="fas fa-arrow-right"></i>'],
 			responsive:{
 				0:{
 					items:1
