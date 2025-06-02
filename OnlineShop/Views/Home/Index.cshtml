@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <div class="product-price">
-                                        <span>$@product.Price.ToString("F2")</span>
+                                        <span>@string.Format("{0:N0} VNĐ", product.Price)</span>
                                     </div>
                                     <button class="product-cart-btn" data-productid="@product.ProductId" type="button"><i class="fal fa-shopping-cart"></i></button>
                                 </div>
@@ -179,7 +179,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <div class="product-price">
-                                        <span>$@product.Price.ToString("F2")</span>
+                                        <span>@string.Format("{0:N0} VNĐ", product.Price)</span>
                                     </div>
                                     <button class="product-cart-btn" data-productid="@product.ProductId" type="button"><i class="fal fa-shopping-cart"></i></button>
                                 </div>

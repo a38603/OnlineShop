@@ -49,9 +49,9 @@
                 }
             </tbody>
         </table>
-
+        
         <div class="text-end mt-3">
-            <h4>Tổng cộng: <span class="text-danger">@totalPrice.ToString("N0") ₫</span></h4>
+            <h4>Tổng cộng: <span class="text-danger">@string.Format("{0:N0} VNĐ", totalPrice)</span></h4>
             <a href="@Url.Action("Checkout", "Cart")" class="btn btn-success">Tiến hành đặt hàng</a>
         </div>
     }

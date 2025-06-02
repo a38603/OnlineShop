@@ -21,7 +21,7 @@
 
                     <div class="card-body">
                         <h6 class="card-title text-primary fw-bold">@product.ProductName</h6>
-                        <p class="mb-1"><strong>Price:</strong> @product.Price.ToString("C")</p>
+                        <p class="mb-1"><strong>Price:</strong> @string.Format("{0:N0} VNĐ", product.Price)</p>
                         <p class="mb-1"><strong>Brand:</strong> @product.BrandName</p>
                         <div class="d-flex justify-content-between align-items-center mt-3">
                             <div class="d-flex align-items-center gap-2">

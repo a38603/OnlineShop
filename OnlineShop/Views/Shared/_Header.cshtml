@@ -131,7 +131,7 @@
                                                     <img src="~/Assets/Img_Products/@item.ProductImg" alt="@item.ProductName" />
                                                 </a>
                                                 <h4><a href="#">@item.ProductName</a></h4>
-                                                <p class="quantity">@item.Quantity x - <span class="amount">$@item.Price.ToString("F2")</span></p>
+                                                <p class="quantity">@item.Quantity x - <span class="amount">@string.Format("{0:N0} VNĐ", @item.Price)</span></p>
                                             </li>
                                         }
                                     }

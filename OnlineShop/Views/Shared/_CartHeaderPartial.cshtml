@@ -15,7 +15,7 @@
                 <a href="#" class="remove" title="Remove this item"><i class="fal fa-times-circle"></i></a>
                 <a class="cart-img" href="#"><img src="~/Assets/Img_Products/@item.ProductImg" alt="@item.ProductName" /></a>
                 <h4><a href="#">@item.ProductName</a></h4>
-                <p class="quantity">@item.Quantity x - <span class="amount">$@item.Price.ToString("F2")</span></p>
+                <p class="quantity">@item.Quantity x - <span class="amount">@string.Format("{0:N0} VNĐ", @item.Price)</span></p>
             </li>
         }
     </ul>
@@ -24,7 +24,7 @@
         <div class="total">
             <span>Total</span>
             <span class="total-amount">
-                $@Model.Sum(x => x.Price * x.Quantity).ToString("F2")
+                @string.Format("{0:N0} VNĐ", Model.Sum(x => x.Price * x.Quantity))
             </span>
         </div>
         <a href="@Url.Action("Checkout", "Order")" class="btn animate">Checkout</a>
